@@ -5,7 +5,6 @@ var contextClass = (window.AudioContext ||
   window.oAudioContext || 
   window.msAudioContext);
 if (contextClass) {
-  // Web Audio API is available.
   var context = new contextClass();
 } else {
   console.log("Unsupported Browser!");

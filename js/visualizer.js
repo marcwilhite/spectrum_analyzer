@@ -71,8 +71,6 @@ var lastRun = Date.now();
 var analyze = function() {
 
   requestAnimationFrame(analyze);
-  // var now = Date.now();
-  //   lastRun = now;
   analyser.getFloatFrequencyData(dataArray);
   updateArray(dataArray);
   update();
