@@ -24,7 +24,8 @@ $("audio").each(function(id, element){
   source.connect(context.destination);
   source.connect(analyser);
   element.addEventListener("canplay", function() {
-    console.log(element.buffered.length);
+  //   $(".spinner").hide();
+  //   $(".load-message").text("Loaded");
   });
 });
 var audioElement = $("#event")[0];

@@ -70,6 +70,14 @@ var update = function() {
     var progress = (audioElement.buffered.end(0) / audioElement.duration) * 100;
     updateProgressBar(progress.toFixed(1));
   }
+  if (audioElement.networkState === 2) {
+    $(".spinner").show();
+    $(".load-message").text("Loading");
+  } else if (audioElement.networkState === 1) {
+    $(".spinner").hide();
+    $(".load-message").text("");
+  }
+
 };
 
 var updateArray = function(array) {
@@ -128,6 +136,8 @@ $(document).ready(function() {
   });
 
   $(".aux-event").on("click", function() {
+    $(".spinner").show();
+    $(".load-message").text("Loading");
     audioElement.pause();
     audioElement = $("#event")[0];
     //audioElement.load();
@@ -136,9 +146,12 @@ $(document).ready(function() {
     $('.track-title').html('Now Playing: Auxillary Event');
     $(".button-play").removeClass("active");
     $(".button-pause").removeClass("active");
+    
   });
 
   $(".love-particles").on("click", function() {
+    $(".spinner").show();
+    $(".load-message").text("Loading");
     audioElement.pause();
     audioElement = $("#particles")[0];
     //audioElement.load();
@@ -150,6 +163,7 @@ $(document).ready(function() {
   });
 
   $(".mono-rocket").on("click", function() {
+
     audioElement.pause();
     audioElement = $("#rocket")[0];
     //audioElement.load();

@@ -38,6 +38,18 @@ svg {
 
 .progress {
   max-width: 960px;
+  border: 2px solid #555;
 }
 
+.spinner {
+  width: 30px;
+  height: 30px;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+.load-message {
+  padding-top: 15px;
+  padding-left: 15px;
+}
 
