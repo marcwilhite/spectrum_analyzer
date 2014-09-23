@@ -1,5 +1,17 @@
 
-var context = new webkitAudioContext();
+var contextClass = (window.AudioContext || 
+  window.webkitAudioContext || 
+  window.mozAudioContext || 
+  window.oAudioContext || 
+  window.msAudioContext);
+if (contextClass) {
+  // Web Audio API is available.
+  var context = new contextClass();
+} else {
+  console.log("Unsupported Browser!");
+  $("body").append("<h2>Browser unsupported! Please upgrade to a modern browser.");
+}
+
 var analyser = context.createAnalyser();
 analyser.minDecibels = -90;
 analyser.maxDecibels = 0;
