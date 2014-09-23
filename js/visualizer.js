@@ -50,6 +50,13 @@ var secondsToTime = function(secs)
     return obj;
 };
 
+var updateProgressBar = function(value) {
+  $(".progress-bar").attr("aria-valuenow", value);
+  $(".progress-bar").attr("aria-valuenow", value);
+  $(".progress-bar").attr("style", "width:"+value+"%");
+  $(".progress-bar").text(value+"% buffered");
+
+};
 var update = function() {
   svg.selectAll('.rects')
     .transition()
@@ -59,6 +66,10 @@ var update = function() {
     });
   var time = secondsToTime(audioElement.currentTime);
   $('.time-stamp').html(time.m+':'+time.s+":"+time.ms);
+  if (audioElement.buffered.length) {
+    var progress = (audioElement.buffered.end(0) / audioElement.duration) * 100;
+    updateProgressBar(progress.toFixed(1));
+  }
 };
 
 var updateArray = function(array) {
@@ -79,6 +90,7 @@ var analyze = function() {
 analyze();
 
 
+
 $(document).ready(function() {
 
   $(".button-pause").on("click", function() {
@@ -90,7 +102,7 @@ $(document).ready(function() {
   });
 
   $(".button-play").on("click", function() {
-    audioElement.load();
+    //audioElement.load();
     audioElement.play();
     $(".button-play").blur();
     $(".button-play").addClass("active");
@@ -99,7 +111,7 @@ $(document).ready(function() {
 
   $(".button-stop").on("click", function() {
     audioElement.pause();
-    audioElement.load();
+    //audioElement.load();
     $(".button-stop").blur();
     $(".button-play").removeClass("active");
     $(".button-pause").removeClass("active");
@@ -118,7 +130,9 @@ $(document).ready(function() {
   $(".aux-event").on("click", function() {
     audioElement.pause();
     audioElement = $("#event")[0];
-    audioElement.load();
+    //audioElement.load();
+    audioElement.play();
+    setTimeout(function(){audioElement.pause();}, 10);
     $('.track-title').html('Now Playing: Auxillary Event');
     $(".button-play").removeClass("active");
     $(".button-pause").removeClass("active");
@@ -127,7 +141,9 @@ $(document).ready(function() {
   $(".love-particles").on("click", function() {
     audioElement.pause();
     audioElement = $("#particles")[0];
-    audioElement.load();
+    //audioElement.load();
+    audioElement.play();
+    setTimeout(function(){audioElement.pause();}, 10);
     $('.track-title').html('Now Playing: Love Particles');
     $(".button-play").removeClass("active");
     $(".button-pause").removeClass("active");
@@ -136,7 +152,9 @@ $(document).ready(function() {
   $(".mono-rocket").on("click", function() {
     audioElement.pause();
     audioElement = $("#rocket")[0];
-    audioElement.load();
+    //audioElement.load();
+    audioElement.play();
+    setTimeout(function(){audioElement.pause();}, 10);
     $('.track-title').html('Now Playing: Mono Rocket');
     $(".button-play").removeClass("active");
     $(".button-pause").removeClass("active");

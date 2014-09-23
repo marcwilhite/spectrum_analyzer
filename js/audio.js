@@ -23,8 +23,11 @@ $("audio").each(function(id, element){
   var source = context.createMediaElementSource(element);
   source.connect(context.destination);
   source.connect(analyser);
-  element.addEventListener("canplaythrough", function() {
-    console.log(element);
+  element.addEventListener("canplay", function() {
+    console.log(element.buffered.length);
   });
 });
 var audioElement = $("#event")[0];
+audioElement.play();
+setTimeout(function(){audioElement.play();}, 10);
+setTimeout(function(){audioElement.pause();}, 20);

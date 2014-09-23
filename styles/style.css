@@ -36,4 +36,8 @@ svg {
   border: 2px solid #555;
 }
 
+.progress {
+  max-width: 960px;
+}
+
 
