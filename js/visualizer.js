@@ -8,7 +8,7 @@ var svg = d3.select(".svg-container").append("svg")
 
 var data = [];
 for (var i = 0; i < 128; i++) {
-  data[i] = {};
+  data[i] = {y:-500};
 }
 
 var rects = svg.selectAll("rect")
@@ -83,57 +83,54 @@ analyze();
 
 $(document).ready(function() {
 
-  $(".button-pause").on("click", function(event) {
+  $(".button-pause").on("click", function() {
     audioElement.pause();
     $(".button-pause").blur();
+    $(".button-pause").addClass("active");
+    $(".button-play").removeClass("active");
     
   });
 
-  $(".button-play").on("click", function(event) {
+  $(".button-play").on("click", function() {
     audioElement.play();
     $(".button-play").blur();
+    $(".button-play").addClass("active");
+    $(".button-pause").removeClass("active");
   });
 
-  $(".button-stop").on("click", function(event) {
+  $(".button-stop").on("click", function() {
     audioElement.pause();
     audioElement.load();
     $(".button-stop").blur();
+    $(".button-play").removeClass("active");
+    $(".button-pause").removeClass("active");
   });
 
-  $(".button-skip-forward").on("click", function(event) {
+  $(".button-skip-forward").on("click", function() {
     audioElement.currentTime += 5;
     $(".button-skip-fastword").blur();
   });
 
-  $(".button-skip-backward").on("click", function(event) {
+  $(".button-skip-backward").on("click", function() {
     audioElement.currentTime -= 5;
     $(".button-skip-backward").blur();
   });
 
-  $(".aux-event").on("click", function(event) {
+  $(".aux-event").on("click", function() {
     audioElement.pause();
-    audioElement = document.getElementById("event");
-    audioElement.load();
+    audioElement = $("#event")[0];
     $('.track-title').html('Now Playing: Auxillary Event');
   });
 
-  $(".love-particles").on("click", function(event) {
+  $(".love-particles").on("click", function() {
     audioElement.pause();
-    audioElement = document.getElementById("particles");
-    audioElement.load();
-    var source = context.createMediaElementSource(audioElement);
-    source.connect(context.destination);
-    source.connect(analyser);
+    audioElement = $("#particles")[0];
     $('.track-title').html('Now Playing: Love Particles');
   });
 
-  $(".mono-rocket").on("click", function(event) {
+  $(".mono-rocket").on("click", function() {
     audioElement.pause();
-    audioElement = document.getElementById("rocket");
-    audioElement.load();
-    var source = context.createMediaElementSource(audioElement);
-    source.connect(context.destination);
-    source.connect(analyser);
+    audioElement = $("#rocket")[0];
     $('.track-title').html('Now Playing: Mono Rocket');
   });
 
