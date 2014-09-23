@@ -90,6 +90,7 @@ $(document).ready(function() {
   });
 
   $(".button-play").on("click", function() {
+    audioElement.load();
     audioElement.play();
     $(".button-play").blur();
     $(".button-play").addClass("active");
@@ -117,19 +118,28 @@ $(document).ready(function() {
   $(".aux-event").on("click", function() {
     audioElement.pause();
     audioElement = $("#event")[0];
+    audioElement.load();
     $('.track-title').html('Now Playing: Auxillary Event');
+    $(".button-play").removeClass("active");
+    $(".button-pause").removeClass("active");
   });
 
   $(".love-particles").on("click", function() {
     audioElement.pause();
     audioElement = $("#particles")[0];
+    audioElement.load();
     $('.track-title').html('Now Playing: Love Particles');
+    $(".button-play").removeClass("active");
+    $(".button-pause").removeClass("active");
   });
 
   $(".mono-rocket").on("click", function() {
     audioElement.pause();
     audioElement = $("#rocket")[0];
+    audioElement.load();
     $('.track-title').html('Now Playing: Mono Rocket');
+    $(".button-play").removeClass("active");
+    $(".button-pause").removeClass("active");
   });
 
 });
