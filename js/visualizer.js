@@ -99,7 +99,6 @@ var analyze = function() {
 analyze();
 
 
-
 $(document).ready(function() {
 
   $(".button-pause").on("click", function() {
@@ -119,6 +118,7 @@ $(document).ready(function() {
 
   $(".button-stop").on("click", function() {
     audioElement.pause();
+    audioElement.currentTime = 0;
     $(".button-stop").blur();
     $(".button-play").removeClass("active");
     $(".button-pause").removeClass("active");
