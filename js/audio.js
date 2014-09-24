@@ -5,7 +5,7 @@ if (contextClass) {
   var context = new contextClass();
 } else {
   console.log("Unsupported Browser!");
-  $("body").append("<div class='container'><h4>Please use the Google Chrome browser. Only Chrome fully supports the Web Audio API at this time.</h4>");
+  $("body").append("<div class='container'><h4>To use this app please upgrade to the latest Google Chrome or Firefox browsers.");
 }
 
 var analyser = context.createAnalyser();
