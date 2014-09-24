@@ -71,13 +71,14 @@ var update = function() {
     updateProgressBar(progress.toFixed(1));
   }
   if (audioElement.networkState === 2) {
-    $(".spinner").show();
-    $(".load-message").text("Loading");
+    if (audioElement.readyState < 4) {
+      $(".spinner").show();
+      $(".load-message").text("Loading");
+    }
   } else if (audioElement.networkState === 1) {
     $(".spinner").hide();
     $(".load-message").text("");
   }
-
 };
 
 var updateArray = function(array) {

@@ -23,12 +23,14 @@ $("audio").each(function(id, element){
   var source = context.createMediaElementSource(element);
   source.connect(context.destination);
   source.connect(analyser);
+  element.preload = "auto";
   element.addEventListener("canplay", function() {
   //   $(".spinner").hide();
   //   $(".load-message").text("Loaded");
   });
 });
 var audioElement = $("#event")[0];
-audioElement.play();
-setTimeout(function(){audioElement.play();}, 10);
-setTimeout(function(){audioElement.pause();}, 20);
+audioElement.preload = "auto";
+// audioElement.play();
+// setTimeout(function(){audioElement.play();}, 10);
+// setTimeout(function(){audioElement.pause();}, 20);
