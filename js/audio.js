@@ -1,14 +1,11 @@
 
 var contextClass = (window.AudioContext || 
-  window.webkitAudioContext || 
-  window.mozAudioContext || 
-  window.oAudioContext || 
-  window.msAudioContext);
+  window.mozAudioContext);
 if (contextClass) {
   var context = new contextClass();
 } else {
   console.log("Unsupported Browser!");
-  $("body").append("<h2>Browser unsupported! Please upgrade to a modern browser.");
+  $("body").append("<div class='container'><h4>Please use the Google Chrome browser. Only Chrome fully supports the Web Audio API at this time.</h4>");
 }
 
 var analyser = context.createAnalyser();
@@ -24,13 +21,6 @@ $("audio").each(function(id, element){
   source.connect(context.destination);
   source.connect(analyser);
   element.preload = "auto";
-  element.addEventListener("canplay", function() {
-  //   $(".spinner").hide();
-  //   $(".load-message").text("Loaded");
-  });
 });
 var audioElement = $("#event")[0];
 audioElement.preload = "auto";
-// audioElement.play();
-// setTimeout(function(){audioElement.play();}, 10);
-// setTimeout(function(){audioElement.pause();}, 20);

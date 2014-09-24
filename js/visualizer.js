@@ -111,7 +111,6 @@ $(document).ready(function() {
   });
 
   $(".button-play").on("click", function() {
-    //audioElement.load();
     audioElement.play();
     $(".button-play").blur();
     $(".button-play").addClass("active");
@@ -120,7 +119,6 @@ $(document).ready(function() {
 
   $(".button-stop").on("click", function() {
     audioElement.pause();
-    //audioElement.load();
     $(".button-stop").blur();
     $(".button-play").removeClass("active");
     $(".button-pause").removeClass("active");
@@ -141,9 +139,6 @@ $(document).ready(function() {
     $(".load-message").text("Loading");
     audioElement.pause();
     audioElement = $("#event")[0];
-    //audioElement.load();
-    //audioElement.play();
-    //setTimeout(function(){audioElement.pause();}, 10);
     $('.track-title').html('Now Playing: Auxillary Event');
     $(".button-play").removeClass("active");
     $(".button-pause").removeClass("active");
@@ -155,9 +150,6 @@ $(document).ready(function() {
     $(".load-message").text("Loading");
     audioElement.pause();
     audioElement = $("#particles")[0];
-    //audioElement.load();
-    //audioElement.play();
-    //setTimeout(function(){audioElement.pause();}, 10);
     $('.track-title').html('Now Playing: Love Particles');
     $(".button-play").removeClass("active");
     $(".button-pause").removeClass("active");
@@ -167,9 +159,6 @@ $(document).ready(function() {
 
     audioElement.pause();
     audioElement = $("#rocket")[0];
-    //audioElement.load();
-    //audioElement.play();
-    //setTimeout(function(){audioElement.pause();}, 10);
     $('.track-title').html('Now Playing: Mono Rocket');
     $(".button-play").removeClass("active");
     $(".button-pause").removeClass("active");
