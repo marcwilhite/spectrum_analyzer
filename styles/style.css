@@ -1,0 +1,61 @@
+
+
+svg {
+  /*text-align: center;
+  position: relative;*/
+  border: 2px solid #555;
+  background-color: rgb(30,30,30);
+}
+
+.buttons {
+  /*position: relative;*/
+  top: 570px;
+  text-align: center;
+}
+
+.buttons-well {
+  max-width: 960px;
+}
+
+.time-stamp {
+  /*position: relative;*/
+  font-size: 2em;
+  /*top: 25px;*/
+}
+
+.current-play {
+  font-size: 1.5em;
+}
+
+.spacer {
+  color: white;
+  position: relative;
+}
+
+.well {
+  border: 2px solid #555;
+  margin-bottom: 5px;
+}
+
+.progress {
+  max-width: 960px;
+  height: 40px;
+  border: 2px solid #555;
+}
+
+.progress-bar {
+  background-color: rgb(100, 100, 125);
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+.load-message {
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
